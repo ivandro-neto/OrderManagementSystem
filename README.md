@@ -19,7 +19,7 @@ Primeiro, clone o repositório do projeto:
 ```bash
 git clone https://github.com/ivandro-neto/OrderManagementSystem.git
 cd OrderManagementSystem
-
+```
 ### 2. Execute
 ```bash
 dotnet run
