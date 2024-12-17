@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderManagementSystem.Communication\OrderManagementSystem.Communication.csproj" />
+    <ProjectReference Include="..\OrderManagementSystem.Exceptions\OrderManagementSystem.Exceptions.csproj" />
+    <ProjectReference Include="..\OrderManagementSystem.Infrastructure\OrderManagementSystem.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
