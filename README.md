@@ -17,5 +17,5 @@ Antes de rodar o projeto, certifique-se de que você tem os seguintes itens inst
 Primeiro, clone o repositório do projeto:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
+git clone https://github.com/ivandro-neto/OrderManagementSystem.git
+cd OrderManagementSystem
