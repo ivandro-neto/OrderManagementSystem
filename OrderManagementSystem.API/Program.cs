@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using OrderManagementSystem.Application.UseCases.ProductsUseCase;
 using OrderManagementSystem.Application.UseCases.ProductUseCase;
 using OrderManagementSystem.API.Filters;
+using OrderManagementSystem.Application.Services.Caching;
 
 
 namespace OrderManagementSystem.API
@@ -29,9 +30,12 @@ namespace OrderManagementSystem.API
             builder.Services.AddScoped<GetProductsUseCase>();
             builder.Services.AddScoped<GetProductUseCase>();
 
+            //Caching
+            builder.Services.AddScoped<IRedisCachingService, RedisCachingService>();
 
             var connectionString = builder.Configuration.GetConnectionString("Database");
 
+            var cachingConnectionString = builder.Configuration.GetConnectionString("Redis");
 
             builder.Services.AddControllersWithViews().AddJsonOptions(options =>
             {
@@ -42,6 +46,11 @@ namespace OrderManagementSystem.API
             {
                 options.CommandTimeout(120); // Define o tempo limite para 120 segundos (2 minutos)
             }));
+
+            builder.Services.AddStackExchangeRedisCache(option => {
+                option.Configuration = cachingConnectionString;
+                option.InstanceName = "Products_";
+            });
 
             builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 

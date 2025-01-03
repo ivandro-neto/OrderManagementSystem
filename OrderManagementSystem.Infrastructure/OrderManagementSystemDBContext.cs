@@ -10,8 +10,12 @@ namespace OrderManagementSystem.Infrastructure
         public DbSet<Product> Products { get; set; }
         public OrderManagementSystemContext(DbContextOptions<OrderManagementSystemContext> options) : base(options)
         {
-            
-        }   
+
+        }
+
+        public OrderManagementSystemContext()
+        {
+        }
 
     }
 }
