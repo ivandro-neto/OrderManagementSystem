@@ -7,6 +7,7 @@ using OrderManagementSystem.Application.UseCases.ProductsUseCase;
 using OrderManagementSystem.Application.UseCases.ProductUseCase;
 using OrderManagementSystem.API.Filters;
 using OrderManagementSystem.Application.Services.Caching;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 
 namespace OrderManagementSystem.API
@@ -73,6 +74,9 @@ namespace OrderManagementSystem.API
 
             app.UseAuthorization();
 
+            app.MapGet("/", () =>{
+                return  Results.Json(new {status = 200, message = "Running"});
+            });
 
             app.MapControllers();
 
